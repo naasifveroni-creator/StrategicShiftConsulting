@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ company.name }} | Enterprise Transformation Partners</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Premium Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo-mark"></div>
+                <div class="logo-text">
+                    <span class="logo-primary">STRATEGICSHIFT</span>
+                    <span class="logo-secondary">CONSULTING</span>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="#contact" class="nav-cta">Start Transformation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ultra Premium Hero -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-orbit"></div>
+            <div class="hero-grid"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>ENTERPRISE TRANSFORMATION PARTNERS</span>
+                </div>
+                
+                <h1 class="hero-title">{{ company.hero_title|safe }}</h1>
+                <p class="hero-subtitle">{{ company.hero_subtitle }}</p>
+                
+                <p class="hero-description">{{ company.intro }}</p>
+                
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Begin Enterprise Transformation</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i>
+                        Explore Capabilities
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Explore Excellence</span>
+        </div>
+    </section>
+
+    <!-- Value Propositions -->
+    <section class="value-props">
+        <div class="container">
+            <div class="value-grid">
+                {% for prop in company.value_props %}
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-{{ prop.icon }}"></i>
+                    </div>
+                    <h3>{{ prop.title }}</h3>
+                    <p>{{ prop.desc }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Dashboard -->
+    <section class="results">
+        <div class="container">
+            <div class="section-header">
+                <h2>Enterprise Impact Delivered</h2>
+                <p>Measurable transformation across industries and markets</p>
+            </div>
+            <div class="results-grid">
+                {% for case in company.case_studies %}
+                <div class="result-card">
+                    <div class="result-metric">{{ case.metric }}</div>
+                    <div class="result-description">{{ case.description }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Excellence -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Strategic Capabilities</h2>
+                <p>Comprehensive solutions for enterprise transformation</p>
+            </div>
+            
+            <div class="services-showcase">
+                {% for service in company.services %}
+                <div class="service-showcase-card {{ service.color }}">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-{{ service.icon }}"></i>
+                        </div>
+                        <div class="service-title">
+                            <h3>{{ service.category }}</h3>
+                            <p>{{ service.description }}</p>
+                        </div>
+                    </div>
+                    <div class="service-capabilities">
+                        {% for capability in service.capabilities %}
+                        <div class="capability-item">
+                            <i class="fas fa-check"></i>
+                            <span>{{ capability }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Excellence -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>The StrategicShift Methodology</h2>
+                <p>Proven framework for enterprise transformation</p>
+            </div>
+            
+            <div class="process-timeline">
+                {% for step in company.process %}
+                <div class="process-phase">
+                    <div class="phase-number">{{ step.step }}</div>
+                    <div class="phase-content">
+                        <h3>{{ step.title }}</h3>
+                        <p>{{ step.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Voices -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by Enterprise Leaders</h2>
+                <p>Strategic partnerships driving exceptional outcomes</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                {% for quote in company.leadership_quotes %}
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <blockquote>{{ quote.quote }}</blockquote>
+                    <cite>{{ quote.author }}</cite>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles Foundation -->
+    <section class="principles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Foundation of Excellence</h2>
+                <p>The principles that guide every engagement</p>
+            </div>
+            
+            <div class="principles-grid">
+                {% for principle in company.principles %}
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <i class="fas fa-{{ principle.icon }}"></i>
+                    </div>
+                    <h4>{{ principle.title }}</h4>
+                    <p>{{ principle.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise CTA -->
+    <section class="enterprise-cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Ready for Enterprise Transformation?</h2>
+                    <p>Let's architect your organization's future together. Our strategic partnership begins with understanding your unique challenges and ambitions.</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="#contact" class="btn btn-light">
+                        <i class="fas fa-calendar"></i>
+                        Schedule Strategy Session
+                    </a>
+                    <a href="tel:{{ company.contact.phones[0] }}" class="btn btn-outline">
+                        <i class="fas fa-phone"></i>
+                        Immediate Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-header">
+                    <h2>Begin Your Transformation</h2>
+                    <p>Connect with our strategic leadership team</p>
+                </div>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="method-details">
+                            <h4>Strategic Consultation</h4>
+                            {% for phone in company.contact.phones %}
+                            <a href="tel:{{ phone }}">{{ phone }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="method-details">
+                            <h4>Executive Correspondence</h4>
+                            <a href="mailto:{{ company.contact.email }}">{{ company.contact.email }}</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="method-details">
+                            <h4>Enterprise Presence</h4>
+                            <p>{{ company.contact.address }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ultra Premium Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-mark"></div>
+                        <div class="logo-text">
+                            <span class="logo-primary">STRATEGICSHIFT</span>
+                            <span class="logo-secondary">CONSULTING</span>
+                        </div>
+                    </div>
+                    <p class="footer-mission">Architects of Enterprise Transformation</p>
+                </div>
+                
+                <div class="footer-info">
+                    <div class="enterprise-info">
+                        <p>Enterprise Number: {{ company.enterprise_number }}</p>
+                        <p>© 2024 StrategicShift Consulting. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
