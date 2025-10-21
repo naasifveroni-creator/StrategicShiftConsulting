@@ -137,7 +137,7 @@ def landing_page():
         'contact': {
             'phones': ['+27 68 852 7197', '+27 69 679 3558'],
             'email': 'StrategicShift.Consulting@outlook.com',
-            'address': 'Johannesburg | Cape Town | Durban'
+            'address': 'South Africa • Global Business Hubs • Emerging Markets'
         }
     }
     return render_template('index.html', company=company_data)
