@@ -78,6 +78,32 @@ def landing_page():
                     'Sustainability Integration'
                 ],
                 'description': 'Seamless, reliable transportation solutions for enterprise workforce'
+            },
+            {
+                'category': 'Property Excellence',
+                'icon': 'building',
+                'color': 'teal',
+                'capabilities': [
+                    'Property Portfolio Management',
+                    'Rental & Sales Acquisition Services',
+                    'Bond Origination & Advisory',
+                    'Investment & Market Analysis',
+                    'Tenant Relationship Management'
+                ],
+                'description': 'End-to-end property solutions and strategic financial guidance'
+            },
+            {
+                'category': 'Corporate Environments',
+                'icon': 'broom',
+                'color': 'green',
+                'capabilities': [
+                    'Customized Corporate Cleaning Plans',
+                    'Deep Cleaning & Sanitization',
+                    'Green & Sustainable Cleaning',
+                    'Specialized Surface & Floor Care',
+                    'Vetted & Uniformed Staff'
+                ],
+                'description': 'Professional in-house cleaning for health, safety, and brand image'
             }
         ],
         
