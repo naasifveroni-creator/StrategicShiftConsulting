@@ -2,17 +2,6 @@ from flask import Flask, render_template, Response
 
 app = Flask(__name__)
 
-@app.route('/sitemap.xml')
-def sitemap():
-    sitemap_xml = '''<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://strategic-shift-consulting.vercel.app/</loc>
-    <lastmod>2024-10-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-</urlset>''', 200, {'Content-Type': 'application/xml'}
 @app.route('/')
 def landing_page():
     company_data = {
@@ -152,6 +141,19 @@ def landing_page():
         }
     }
     return render_template('index.html', company=company_data)
+
+@app.route('/sitemap.xml')
+def sitemap():
+    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://strategic-shift-consulting.vercel.app/</loc>
+    <lastmod>2024-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>"""
+    return xml_content, 200, {'Content-Type': 'application/xml'}
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
