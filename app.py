@@ -1,7 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Response
 
 app = Flask(__name__)
 
+@app.route('/sitemap.xml')
+def sitemap():
+    sitemap_xml = '''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://strategic-shift-consulting.vercel.app/</loc>
+    <lastmod>2024-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>''', 200, {'Content-Type': 'application/xml'}
 @app.route('/')
 def landing_page():
     company_data = {
