@@ -10,8 +10,8 @@ def landing_page():
         'subtagline': 'Driving Operational Excellence, Maximizing Your Potential', 
         'enterprise_number': '2025/451935/07',
         
-        'hero_title': 'Enterprise Transformation<br>Redefined',
-        'hero_subtitle': 'Where Strategic Vision Meets Execution Excellence',
+        'hero_title': 'Cape Town\'s Enterprise Transformation Partners<br>Global Strategic Excellence',
+        'hero_subtitle': 'Driving Business Growth in the Mother City, Empowering Enterprises Worldwide',
         
         'intro': 'In an era of unprecedented complexity, exceptional organizations require exceptional partnerships. We deliver the strategic clarity, operational precision, and digital innovation that separates market leaders from followers.',
         
